@@ -1,0 +1,707 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace lutong_pinoy_2
+{
+    public partial class Form1 : Form
+    {
+
+        // quiz game variables
+
+        int correctAnswer;
+        int questionNumber = 1;
+        int score;
+        int percentage;
+        int totalQuestion;
+
+
+
+        public Form1()
+        {
+            InitializeComponent();
+
+            AskQuestion(questionNumber);
+
+            totalQuestion = 45;
+        }
+
+        private void checkAnswerEvent(object sender, EventArgs e)
+        {
+            var senderObject =(Button)sender;
+
+            int buttonTag = Convert.ToInt32(senderObject.Tag);
+
+
+            if(buttonTag == correctAnswer)
+            {
+                score++;  
+
+            }
+
+            if(questionNumber == totalQuestion)
+            {
+             // work out the percentage
+
+                percentage = (int)Math.Round((double)(score * 100) / totalQuestion);
+
+
+                MessageBox.Show(
+                   "Quiz Ended!" + Environment.NewLine +
+                   "You have answered " + score + " questions correctly." + Environment.NewLine +
+                   "Your total percentage is " + percentage + "%" + Environment.NewLine +
+                   "Click OK to play again"
+                    );
+
+                score = 0;
+                questionNumber = 0;
+                AskQuestion(questionNumber);
+            }
+
+            questionNumber++;
+            AskQuestion(questionNumber);
+
+
+        }
+
+            private void AskQuestion(int qnum)
+        {
+
+            switch (qnum)
+            {
+                case 1:
+                    pictureBox1.Image = Properties.Resources.Canva_08_01_2023_11_46_25_pm;
+
+                     lblQuestion.Text = "What is Filipino staple food?";
+
+                    button1.Text = "Lumpia";
+                    button2.Text = "Adobo";
+                    button3.Text = "Rice";
+                    button4.Text = "Sinigang";
+
+                    correctAnswer = 3;
+
+                    break;
+                case 2:
+                    pictureBox1.Image = Properties.Resources.Canva_08_01_2023_11_46_25_pm;
+
+                    lblQuestion.Text = "Food historians claim that ___ of Filipino dishes are of ___ origin.?";
+
+                    button1.Text = "80%,Spanish";
+                    button2.Text = "80%,Japanese";
+                    button3.Text = "90%,Spanish";
+                    button4.Text = "100%,Filipino";
+
+                    correctAnswer = 1;
+
+
+                    break;
+                case 3:
+                    pictureBox1.Image = Properties.Resources.Canva_08_01_2023_11_46_25_pm;
+
+                    lblQuestion.Text = "Who introduced the use of noodles in Filipino cooking?";
+
+                    button1.Text = "Spanish";
+                    button2.Text = "Chinese";
+                    button3.Text = "Japanese";
+                    button4.Text = "Malayo-Polynesian";
+
+                    correctAnswer = 2;
+
+
+                    break;
+                case 4:
+                    pictureBox1.Image = Properties.Resources.arrozcaldo;
+
+                    lblQuestion.Text = "Pancit is a type of what food?";
+
+                    button1.Text = "Tinola";
+                    button2.Text = "Steak";
+                    button3.Text = "Noodles";
+                    button4.Text = "Ginataan";
+
+                    correctAnswer = 3;
+
+
+                    break;
+
+                case 5:
+                    pictureBox1.Image = Properties.Resources.Canva_08_01_2023_11_46_25_pm;
+
+                    lblQuestion.Text = "Name a country that influenced Filipino Cuisine.";
+
+                    button1.Text = "Japan";
+                    button2.Text = "Russia";
+                    button3.Text = "Spain";
+                    button4.Text = "Canada";
+
+                    correctAnswer = 3;
+
+
+                    break;
+                case 6:
+                    pictureBox1.Image = Properties.Resources.suman;
+
+                    lblQuestion.Text = "What food that filipinos cannot live without?";
+
+                    button1.Text = "Turon";
+                    button2.Text = "Puto";
+                    button3.Text = "Kalamay";
+                    button4.Text = "Rice";
+
+                    correctAnswer = 4;
+
+
+                    break;
+                case 7:
+                    pictureBox1.Image = Properties.Resources.Canva_08_01_2023_11_46_25_pm;
+
+                    lblQuestion.Text = "When did the Spaniards arrive in the Philippines?";
+
+                    button1.Text = "1521";
+                    button2.Text = "400";
+                    button3.Text = "3200 BC";
+                    button4.Text = "2009";
+
+                    correctAnswer = 1;
+
+
+                    break;
+                case 8:
+                    pictureBox1.Image = Properties.Resources.Canva_08_01_2023_11_46_25_pm;
+
+                    lblQuestion.Text = "How did Filipinos keep these dishes traditional?";
+
+                    button1.Text = "Do nothing";
+                    button2.Text = "My mommy knows....";
+                    button3.Text = "By looking it up in the Dead Sea Scrolls";
+                    button4.Text = "By passing it on from generation to generation";
+
+                    correctAnswer = 4;
+
+
+                    break;
+                case 9:
+                    pictureBox1.Image = Properties.Resources.Canva_08_01_2023_11_46_25_pm;
+
+                    lblQuestion.Text = "Filipino food is?";
+
+                    button1.Text = "Unique";
+                    button2.Text = "Delicious";
+                    button3.Text = "Irresistible";
+                    button4.Text = "All of the above";
+
+                    correctAnswer = 4;
+
+
+                    break;
+                case 10:
+                    pictureBox1.Image = Properties.Resources.Canva_08_01_2023_11_46_25_pm;
+
+                    lblQuestion.Text = "You can look forward to seeing _____ at a Filipino fiesta.";
+
+                    button1.Text = "Pancit";
+                    button2.Text = "Adobo";
+                    button3.Text = "Lumpia";
+                    button4.Text = "All of the Above";
+
+                    correctAnswer = 4;
+
+
+                    break;
+                case 11:
+                    pictureBox1.Image = Properties.Resources.Canva_08_01_2023_11_46_25_pm;
+
+                    lblQuestion.Text = "What is the Most Famous street food of Filipinos?";
+
+                    button1.Text = "One DAy Egg";
+                    button2.Text = "Kikiam";
+                    button3.Text = "FishBalls";
+                    button4.Text = "SquidBals";
+
+                    correctAnswer = 3;
+
+
+                    break;
+
+                case 12:
+                    pictureBox1.Image = Properties.Resources.Canva_08_01_2023_11_46_25_pm;
+
+                    lblQuestion.Text = "How old must a balut be until it's perfect to eat?";
+
+                    button1.Text = "14-21 Days";
+                    button2.Text = "21-25 days";
+                    button3.Text = "26-30 days";
+                    button4.Text = "31-40 days";
+
+                    correctAnswer = 1;
+
+
+                    break;
+                case 13:
+                    pictureBox1.Image = Properties.Resources.Canva_08_01_2023_11_46_25_pm;
+
+                    lblQuestion.Text = "What color is dinuguan?";
+
+                    button1.Text = "Blue";
+                    button2.Text = "Black";
+                    button3.Text = "Red";
+                    button4.Text = "Yellow";
+
+                    correctAnswer = 2;
+
+
+                    break;
+                case 14:
+                    pictureBox1.Image = Properties.Resources.arrozcaldo;
+
+                    lblQuestion.Text = "What is the Filipino version of a spring roll??";
+
+                    button1.Text = "Turon";
+                    button2.Text = "Dumpling";
+                    button3.Text = "Lumpia";
+                    button4.Text = "Takito";
+
+                    correctAnswer = 3;
+
+
+                    break;
+                case 15:
+                    pictureBox1.Image = Properties.Resources.Canva_08_01_2023_11_46_25_pm;
+
+                    lblQuestion.Text = "What is this spicy dish that features taro leaves bundled together, filled with shredded taro leaves, bits of meat and or shrimp, onion, ginger, garlic, lots and lots of chilis, all stewed in coconut milk?";
+
+                    button1.Text = "Bicol Express";
+                    button2.Text = "Ginataan";
+                    button3.Text = "Laing";
+                    button4.Text = "Dinilawan";
+
+                    correctAnswer = 3;
+
+
+                    break;
+                case 16:
+                    pictureBox1.Image = Properties.Resources.Lechón_kawali;
+
+                    lblQuestion.Text = "Name This Filipino Food";
+
+                    button1.Text = "Lumpia";
+                    button2.Text = "Adobo";
+                    button3.Text = "Lechon Kawali";
+                    button4.Text = "Sinigang";
+
+                    correctAnswer = 3;
+
+
+                    break;
+                case 17:
+                    pictureBox1.Image = Properties.Resources.bulalo;
+
+                    lblQuestion.Text = "Name This Filipino Food?";
+
+                    button1.Text = "Bulalo";
+                    button2.Text = "Nilaga";
+                    button3.Text = "Tinola";
+                    button4.Text = "Sinigang";
+
+                    correctAnswer = 1;
+
+
+                    break;
+                case 18:
+                    pictureBox1.Image = Properties.Resources.pork_sinigang2;
+
+                    lblQuestion.Text = "Name This Filipino Food?";
+
+                    button1.Text = "Bulalo";
+                    button2.Text = "Sinigang na Baboy";
+                    button3.Text = "Adobo";
+                    button4.Text = "Nilagang baboy";
+
+                    correctAnswer = 2;
+
+
+                    break;
+                case 19:
+                    pictureBox1.Image = Properties.Resources.pandesal;
+
+                    lblQuestion.Text = "Name This Filipino Food?";
+
+                    button1.Text = "Puto";
+                    button2.Text = "Bibingka";
+                    button3.Text = "Suman";
+                    button4.Text = "Pandesal";
+
+                    correctAnswer = 4;
+
+
+                    break;
+                case 20:
+                    pictureBox1.Image = Properties.Resources.arrozcaldo;
+
+                    lblQuestion.Text = "Name This Filipino Food?";
+
+                    button1.Text = "Tinola";
+                    button2.Text = "lugaw";
+                    button3.Text = "Arrozcaldo";
+                    button4.Text = "Ginataan";
+
+                    correctAnswer = 3;
+
+
+                    break;
+                case 21:
+                    pictureBox1.Image = Properties.Resources.cassava_1;
+
+                    lblQuestion.Text = "Name This Filipino Food?";
+
+                    button1.Text = "Cake";
+                    button2.Text = "Turon";
+                    button3.Text = "Cassava Cake";
+                    button4.Text = "Suman";
+
+                    correctAnswer = 3;
+
+
+                    break;
+                case 22:
+                    pictureBox1.Image = Properties.Resources.lumpia;
+
+                    lblQuestion.Text = "Name This Filipino Food?";
+
+                    button1.Text = "Lumpia";
+                    button2.Text = "Banana Que";
+                    button3.Text = "Biko";
+                    button4.Text = "Turon";
+
+                    correctAnswer = 1;
+
+
+                    break;
+                case 23:
+                    pictureBox1.Image = Properties.Resources.Ted_s_Oldtimer_La_Paz_batchoy___beef_batchoy_11;
+
+                    lblQuestion.Text = "Name This Filipino Food?";
+
+                    button1.Text = "Pares";
+                    button2.Text = "Lomi";
+                    button3.Text = "Arroz Caldo";
+                    button4.Text = "Batchoy";
+
+                    correctAnswer = 4;
+
+
+                    break;
+                case 24:
+                    pictureBox1.Image = Properties.Resources.suman;
+
+                    lblQuestion.Text = "Name This Filipino Food?";
+
+                    button1.Text = "Turon";
+                    button2.Text = "Puto";
+                    button3.Text = "Kalamay";
+                    button4.Text = "Suman";
+
+                    correctAnswer = 4;
+
+
+                    break;
+                case 25:
+                    pictureBox1.Image = Properties.Resources.sisig;
+
+                    lblQuestion.Text = "Name This Filipino Food?";
+
+                    button1.Text = "Pancit";
+                    button2.Text = "Adobo";
+                    button3.Text = "Lumpia";
+                    button4.Text = "Sisig";
+
+                    correctAnswer = 4;
+
+
+                    break;
+
+                case 26:
+                    pictureBox1.Image = Properties.Resources.ubepandesal;
+
+                    lblQuestion.Text = "What is Filipino staple food?";
+
+                    button1.Text = "Lumpia";
+                    button2.Text = "Ube Pandesal";
+                    button3.Text = "Biko";
+                    button4.Text = "Ube Halaya";
+
+                    correctAnswer = 2;
+
+
+                    break;
+                case 27:
+                    pictureBox1.Image = Properties.Resources.champorado;
+
+                    lblQuestion.Text = "Food historians claim that ___ of Filipino dishes are of ___ origin.?";
+
+                    button1.Text = "Champorado";
+                    button2.Text = "Arozcaldo";
+                    button3.Text = "Dinuguan";
+                    button4.Text = "Pares";
+
+                    correctAnswer = 1;
+
+
+                    break;
+                case 28:
+                    pictureBox1.Image = Properties.Resources.karekare_1068x1335;
+
+                    lblQuestion.Text = "Who introduced the use of noodles in Filipino cooking?";
+
+                    button1.Text = "Spaghetti";
+                    button2.Text = "Kare-Kare";
+                    button3.Text = "nilaga";
+                    button4.Text = "Gisado";
+
+                    correctAnswer = 2;
+
+
+                    break;
+                case 29:
+                    pictureBox1.Image = Properties.Resources.turon;
+
+                    lblQuestion.Text = "In the Bicol Region, what ingredient do they use more commonly than in other parts of the Philippines?";
+
+                    button1.Text = "Suman";
+                    button2.Text = "Puto";
+                    button3.Text = "Bibingka";
+                    button4.Text = "Turon";
+
+                    correctAnswer = 4;
+
+
+                    break;
+                case 30:
+                    pictureBox1.Image = Properties.Resources.buko;
+
+                    lblQuestion.Text = "Name a country that influenced Filipino Cuisine.";
+
+                    button1.Text = "Ice Cream";
+                    button2.Text = "Ice Candy";
+                    button3.Text = "Buko Salad";
+                    button4.Text = "Halo_ HAlo";
+
+                    correctAnswer = 3;
+
+
+                    break;
+                case 31:
+                    pictureBox1.Image = Properties.Resources.Canva_08_01_2023_11_46_25_pm;
+
+                    lblQuestion.Text = "What is a famous entree made with leftover rice, garlic, and onions?";
+
+                    button1.Text = "Puto";
+                    button2.Text = "Pancit";
+                    button3.Text = "Sinangag";
+                    button4.Text = "Sinigang";
+
+                    correctAnswer = 3;
+
+
+                    break;
+               
+                case 32:
+                    pictureBox1.Image = Properties.Resources.bulalo;
+
+                    lblQuestion.Text = "Turon is a Filipino snack. What is it made of?";
+
+                    button1.Text = "Pears and bananas";
+                    button2.Text = "Pineapples and jackfruits";
+                    button3.Text = "Apples and pineapples";
+                    button4.Text = "Bananas and jackfruit";
+
+                    correctAnswer = 1;
+
+
+                    break;
+                case 33:
+                    pictureBox1.Image = Properties.Resources.pork_sinigang2;
+
+                    lblQuestion.Text = "What kind of sauce is used in the meat dish kare-kare?";
+
+                    button1.Text = "Peanut Sauce";
+                    button2.Text = "Hoisin Sauce";
+                    button3.Text = "Soy Sauce";
+                    button4.Text = "Fish Sauce";
+
+                    correctAnswer = 1;
+
+
+                    break;
+                case 34:
+                    pictureBox1.Image = Properties.Resources.pandesal;
+
+                    lblQuestion.Text = "What part of the pig is sisig from?";
+
+                    button1.Text = "Feet";
+                    button2.Text = "Shoulder";
+                    button3.Text = "Arms";
+                    button4.Text = "Head";
+
+                    correctAnswer = 4;
+
+
+                    break;
+                    break;
+                case 35:
+                    pictureBox1.Image = Properties.Resources.pandesal;
+
+                    lblQuestion.Text = "What's the main base for any Ilocano vegetable soup/stew?";
+
+                    button1.Text = "Fish Sauce";
+                    button2.Text = "Soy Sauce";
+                    button3.Text = "Salt";
+                    button4.Text = "Bagoong";
+
+                    correctAnswer = 4;
+
+
+                    break;
+
+                case 36:
+                    pictureBox1.Image = Properties.Resources.cassava_1;
+
+                    lblQuestion.Text = "What kind of rind is chicharrón made?";
+
+                    button1.Text = "Whale";
+                    button2.Text = "Beef";
+                    button3.Text = "Pig";
+                    button4.Text = "Rabbit";
+
+                    correctAnswer = 3;
+
+
+                    break;
+                case 37:
+                    pictureBox1.Image = Properties.Resources.lumpia;
+
+                    lblQuestion.Text = "What is lechon, a Filipino meat dish, made of?";
+
+                    button1.Text = "Pig";
+                    button2.Text = "Cow";
+                    button3.Text = "Chicken";
+                    button4.Text = "Fish";
+
+                    correctAnswer = 1;
+
+
+                    break;
+                case 38:
+                    pictureBox1.Image = Properties.Resources.Ted_s_Oldtimer_La_Paz_batchoy___beef_batchoy_11;
+
+                    lblQuestion.Text = "What filipino food with a duckling?";
+
+                    button1.Text = "Pugo";
+                    button2.Text = "Itlog";
+                    button3.Text = "Balut";
+                    button4.Text = "Isaw";
+
+                    correctAnswer = 3;
+
+
+                    break;
+                case 39:
+                    pictureBox1.Image = Properties.Resources.Canva_08_01_2023_11_46_25_pm;
+
+                    lblQuestion.Text = "soy sauce, Vinegar, Pepper, Laurel (bayleaf), Meat";
+
+                    button1.Text = "Caldereta";
+                    button2.Text = "Pancit";
+                    button3.Text = "Adobo";
+                    button4.Text = "Sinigang";
+
+                    correctAnswer = 3;
+
+
+                    break;
+                ;
+                case 40:
+                    pictureBox1.Image = Properties.Resources.sisig;
+
+                    lblQuestion.Text = "Evaporated milk, macaroni/noodles, margarine";
+
+                    button1.Text = "Soy Con Manok";
+                    button2.Text = "Sopas";
+                    button3.Text = "Lumpia";
+                    button4.Text = "Champorado";
+
+                    correctAnswer = 2;
+
+
+                    break;
+                
+                case 42:
+                    pictureBox1.Image = Properties.Resources.Canva_08_01_2023_11_46_25_pm;
+
+                    lblQuestion.Text = "Whole pig, herbs";
+
+                    button1.Text = "Adobo";
+                    button2.Text = "Lechon";
+                    button3.Text = "Nilagang Baboy";
+                    button4.Text = "Lechon Kawali";
+
+                    correctAnswer = 2;
+
+
+                    break;
+                case 43:
+                    pictureBox1.Image = Properties.Resources.Canva_08_01_2023_11_46_25_pm;
+
+                    lblQuestion.Text = "Rice noodles, mixed vegetables, soy sauce";
+
+                    button1.Text = "Carbonara";
+                    button2.Text = "Pancit";
+                    button3.Text = "Ramen";
+                    button4.Text = "Palabok";
+
+                    correctAnswer = 2;
+
+
+                    break;
+                case 44:
+                    pictureBox1.Image = Properties.Resources.Canva_08_01_2023_11_46_25_pm;
+
+                    lblQuestion.Text = "In the Bicol Region, what ingredient do they use more commonly than in other parts of the Philippines?";
+
+                    button1.Text = "Garlic";
+                    button2.Text = "Soy sauce";
+                    button3.Text = "Rice";
+                    button4.Text = "Coconut Milk";
+
+                    correctAnswer = 4;
+
+
+                    break;
+              
+                case 45:
+                    pictureBox1.Image = Properties.Resources.Canva_08_01_2023_11_46_25_pm;
+
+                    lblQuestion.Text = "What's the main base for any Ilocano vegetable soup/stew?";
+
+                    button1.Text = "Garlic";
+                    button2.Text = "Soy sauce";
+                    button3.Text = "Fish Sauce";
+                    button4.Text = "Bagoong";
+
+                    correctAnswer = 4;
+
+
+                    break;
+              
+            }
+
+        }
+    }
+}
